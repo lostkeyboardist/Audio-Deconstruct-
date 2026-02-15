@@ -1,0 +1,12 @@
+Audio DeConstruct Release Checklist
+
+[ ] Update version in version.py
+[ ] Run build_exe.bat
+[ ] Test EXE in dist folder
+[ ] Compile installer.iss
+[ ] Test installer on clean machine
+[ ] Test uninstall
+[ ] Verify splash screen
+[ ] Verify logo
+[ ] Verify playback + stem separation
+[ ] Verify no console window opens

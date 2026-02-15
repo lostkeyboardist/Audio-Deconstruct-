@@ -1,0 +1,8 @@
+# Auto detect text files and normalize line endings
+* text=auto
+# Python
+*.py text eol=lf
+# Windows batch
+*.bat text eol=crlf
+# Inno Setup
+*.iss text eol=crlf
