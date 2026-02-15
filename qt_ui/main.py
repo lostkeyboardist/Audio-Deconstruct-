@@ -81,6 +81,9 @@ class MainWindow(QMainWindow):
         tabs.addTab(self._build_playback_tab(), "Playback")
         layout.addWidget(tabs)
 
+        help_menu = self.menuBar().addMenu("Help")
+        help_menu.addAction("About", self._show_about)
+
         # QTimer: refresh queue table every 500ms
         self._queue_timer = QTimer(self)
         self._queue_timer.timeout.connect(self._refresh_queue_table)
