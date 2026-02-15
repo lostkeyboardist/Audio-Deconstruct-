@@ -1,6 +1,6 @@
 # Audio DeConstruct
 
-Version: v1.0.0
+Version: v1.0.0.1
 
 Professional Audio Stem Separation & Processing Utility  
 Built by Priyanshu
@@ -14,6 +14,7 @@ Built by Priyanshu
 - Persistent window state
 - Crash logging
 - Modern dark UI
+- **Convert & Separate require a destination folder** — you must select an output folder before adding tasks; no silent fallbacks.
 
 ## Screenshots
 

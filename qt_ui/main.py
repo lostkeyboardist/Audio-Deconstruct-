@@ -35,6 +35,7 @@ from PyQt6.QtWidgets import (
     QLabel,
     QLineEdit,
     QMainWindow,
+    QMessageBox,
     QPlainTextEdit,
     QPushButton,
     QScrollArea,
@@ -121,8 +122,6 @@ class MainWindow(QMainWindow):
         return lbl
 
     def _show_about(self):
-        from PyQt6.QtWidgets import QMessageBox
-
         QMessageBox.information(
             self,
             "About",
@@ -797,6 +796,14 @@ class MainWindow(QMainWindow):
         if not self.selected_files:
             self.log_box.appendPlainText("No files selected.")
             return
+        output_dir = self.output_path_edit.text().strip()
+        if not output_dir or not os.path.isdir(output_dir):
+            QMessageBox.warning(
+                self,
+                "Missing Output Folder",
+                "Please select a destination folder before converting.",
+            )
+            return
         selected_format = self.format_combo.currentText().lower()
         selected_bitrate = self.bitrate_combo.currentText()
         for f in self.selected_files:
@@ -817,6 +824,14 @@ class MainWindow(QMainWindow):
     def _on_separate(self):
         if not self.selected_files:
             self.log_box.appendPlainText("No files selected.")
+            return
+        output_dir = self.output_path_edit.text().strip()
+        if not output_dir or not os.path.isdir(output_dir):
+            QMessageBox.warning(
+                self,
+                "Missing Output Folder",
+                "Please select a destination folder before separating stems.",
+            )
             return
         selected_stems = []
         if self.chk_vocals.isChecked():
